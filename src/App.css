@@ -1,0 +1,292 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background: #f4f5fc;
+  color: #24213a;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 5%;
+  background: #fff;
+  border-bottom: 1px solid #e9e7f5;
+}
+
+.logo {
+  color: #6842dc;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.header-tag {
+  color: #77718e;
+  font-size: 13px;
+}
+
+.main {
+  width: min(1200px, 94%);
+  margin: 30px auto;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #7046e7;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.intro h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  margin: 12px 0;
+}
+
+.intro p {
+  color: #77718e;
+  font-size: 14px;
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.75fr) minmax(0, 1.4fr);
+  gap: 24px;
+  padding: 24px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(35, 25, 80, 0.07);
+}
+
+.controls,
+.preview {
+  min-width: 0;
+}
+
+.section-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.upload-box {
+  min-height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: #faf9ff;
+  border: 1px dashed #bbaaff;
+  border-radius: 13px;
+  cursor: pointer;
+  color: #51447b;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 32px;
+  color: #7546e8;
+}
+
+.upload-box span:last-child {
+  font-size: 11px;
+  color: #8982a2;
+}
+
+.instruction {
+  background: #f5f1ff;
+  border: 1px solid #e2d7ff;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  color: #6542bf;
+  line-height: 1.5;
+}
+
+.instruction p {
+  margin-bottom: 0;
+  color: #68617e;
+}
+
+.blur-slider {
+  width: 100%;
+  accent-color: #7147dc;
+  cursor: pointer;
+}
+
+.selection-count {
+  font-size: 13px;
+  color: #6f6590;
+  line-height: 1.8;
+  margin: 12px 0;
+}
+
+.detect-btn,
+.reset-btn,
+.download-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease;
+}
+
+.detect-btn {
+  border: none;
+  background: linear-gradient(120deg, #7951ed, #5635cb);
+  color: white;
+}
+
+.detect-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.reset-btn {
+  background: white;
+  border: 1px solid #dcd6f1;
+  color: #554b78;
+}
+
+.reset-btn:hover:not(:disabled) {
+  background: #f7f4ff;
+}
+
+.download-btn {
+  border: none;
+  background: #6842dc;
+  color: white;
+}
+
+.download-btn:hover:not(:disabled) {
+  background: #5733c8;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.action-row {
+  display: flex;
+  gap: 10px;
+}
+
+.action-row button {
+  flex: 1;
+}
+
+.message {
+  margin-top: 16px;
+  color: #6744ce;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.preview-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.preview-status {
+  background: #f1ecff;
+  color: #7046d6;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.canvas-wrap {
+  width: 100%;
+  max-height: 70vh;
+  overflow: auto;
+  background-color: #f2f2f6;
+  background-image:
+    linear-gradient(45deg, #e6e6ee 25%, transparent 25%),
+    linear-gradient(-45deg, #e6e6ee 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e6e6ee 75%),
+    linear-gradient(-45deg, transparent 75%, #e6e6ee 75%);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+  border-radius: 12px;
+  border: 1px solid #e6e2f0;
+}
+
+.canvas-wrap canvas {
+  max-width: 100%;
+}
+
+.empty-preview {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #7c719e;
+  background: #faf9ff;
+  border: 1px dashed #d7ceee;
+  border-radius: 12px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #9778ef;
+}
+
+.empty-preview span {
+  font-size: 12px;
+}
+
+@media (max-width: 750px) {
+  .main {
+    width: 94%;
+    margin: 20px auto;
+  }
+
+  .editor {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 25px;
+  }
+
+  .header {
+    padding: 14px 4%;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .canvas-wrap {
+    max-height: 60vh;
+  }
+}
